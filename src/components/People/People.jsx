@@ -1,4 +1,5 @@
 import React, { useContext, useState } from "react";
+import { m } from "framer-motion";
 import { LanguageContext } from "../../App";
 import { translations } from "../../translations";
 
@@ -34,8 +35,8 @@ const People = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {persons.map((person) => (
-            <div key={person.id} onClick={() => setSelected(person)} className="bg-gray-700 rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition duration-300 transform hover:scale-105 cursor-pointer">
+          {persons.map((person, idx) => (
+            <m.div key={person.id} onClick={() => setSelected(person)} initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 1, delay: idx * 0.06 }} whileHover={{ scale: 1.02 }} className="bg-gray-700 rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition duration-300 transform cursor-pointer">
               <div className="w-full h-64 bg-gradient-to-br from-green-400 to-blue-500 flex items-center justify-center">
                 {person.pic ? (
                   <img src={person.pic} alt={get(person, 'nameEn', 'nameMr')} className="w-full h-full object-cover" />
@@ -60,7 +61,7 @@ const People = () => {
                   </button>
                 </div>
               </div>
-            </div>
+            </m.div>
           ))}
         </div>
 

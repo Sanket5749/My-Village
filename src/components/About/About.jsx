@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { m } from 'framer-motion';
 import { LanguageContext } from '../../App';
 import { translations } from '../../translations';
 
@@ -36,9 +37,9 @@ const About = () => {
     <section id="about" className="w-full bg-gradient-to-b from-gray-900 to-gray-800 py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12">
-          <h1 className="text-5xl sm:text-6xl font-bold text-white mb-4 bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent">
+          <m.h1 initial={{ y: 18, opacity: 0 }} whileInView={{ y: 0, opacity: 1 }} viewport={{ once: true }} transition={{ duration: 1 }} className="text-5xl sm:text-6xl font-bold text-white mb-4 bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent">
             {t.about.title}
-          </h1>
+          </m.h1>
           <div className="h-1 w-24 bg-gradient-to-r from-yellow-500 to-orange-500 mx-auto rounded-full"></div>
         </div>
 
@@ -47,10 +48,10 @@ const About = () => {
           <h2 className="text-2xl font-bold text-white mb-6">{t.about.administration}</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {adminDetails.map((item, index) => (
-              <div key={index} className="bg-gray-800 p-4 rounded">
+              <m.div key={index} initial={{ opacity: 0, y: 8 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 1, delay: index * 0.03 }} className="bg-gray-800 p-4 rounded">
                 <p className="text-gray-400 text-sm font-semibold mb-1">{item.label}</p>
                 <p className="text-white font-bold">{item.value}</p>
-              </div>
+              </m.div>
             ))}
           </div>
         </div>
@@ -60,10 +61,10 @@ const About = () => {
           <h2 className="text-2xl font-bold text-white mb-6">{t.demographics.title}</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {censusData.map((item, index) => (
-              <div key={index} className="bg-gray-800 p-4 rounded hover:bg-gray-750 transition">
+              <m.div key={index} initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 1, delay: index * 0.04 }} className="bg-gray-800 p-4 rounded hover:bg-gray-750 transition">
                 <p className="text-gray-400 text-sm font-semibold mb-1">{item.label}</p>
                 <p className="text-green-400 font-bold text-lg">{item.value}</p>
-              </div>
+              </m.div>
             ))}
           </div>
         </div>
@@ -73,4 +74,3 @@ const About = () => {
 };
 
 export default About;
-

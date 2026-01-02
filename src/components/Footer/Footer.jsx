@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { m } from 'framer-motion';
 import { LanguageContext } from '../../App';
 import { translations } from '../../translations';
 
@@ -11,7 +12,7 @@ const Footer = () => {
     <footer className='w-full bg-gradient-to-r from-gray-900 to-black border-t border-gray-700'>
       <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12'>
         <div className='grid grid-cols-1 md:grid-cols-4 gap-8 mb-8'>
-          <div>
+          <m.div initial={{ opacity: 0, y: 6 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 1 }}>
             <h3 className='text-lg font-bold text-white mb-4'>
               {language === 'en' ? 'Babuldhe Village' : 'बाभुळदे गाव'}
             </h3>
@@ -21,18 +22,18 @@ const Footer = () => {
                 : 'बाभुळदे गावाच्या अधिकृत वेबसाइटमध्ये आपले स्वागत आहे. आमचे समृद्ध सांस्कृतिक वारसा शोधा, आमच्या समुदायाला भेटा, आणि ग्रामीण महाराष्ट्राची सुंदरता शोधा.'
               }
             </p>
-          </div>
+          </m.div>
           
-          <div>
+          <m.div initial={{ opacity: 0, y: 6 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 1, delay: 0.03 }}>
             <h4 className='text-white font-semibold mb-4'>{t.footer.quickLinks}</h4>
             <ul className='space-y-2 text-sm'>
               <li><a href="#home" className='text-gray-400 hover:text-white transition duration-200'>{t.navbar.home}</a></li>
               <li><a href="#about" className='text-gray-400 hover:text-white transition duration-200'>{t.navbar.about}</a></li>
               <li><a href="#people" className='text-gray-400 hover:text-white transition duration-200'>{t.navbar.people}</a></li>
             </ul>
-          </div>
+          </m.div>
           
-          <div>
+          <m.div initial={{ opacity: 0, y: 6 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 1, delay: 0.06 }}>
             <h4 className='text-white font-semibold mb-4'>{t.footer.contact}</h4>
             <ul className='space-y-2 text-sm'>
               <li className='text-gray-400'>{language === 'en' ? 'Phone: 02563' : 'फोन: 02563'}</li>
@@ -40,9 +41,9 @@ const Footer = () => {
               <li className='text-gray-400'>{language === 'en' ? 'Taluka: Shirpur' : 'तालुका: शिरपूर'}</li>
               <li className='text-gray-400'>{language === 'en' ? 'District: Dhule' : 'जिल्हा: धुळे'}</li>
             </ul>
-          </div>
+          </m.div>
           
-          <div>
+          <m.div initial={{ opacity: 0, y: 6 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 1, delay: 0.09 }}>
             <h4 className='text-white font-semibold mb-4'>{language === 'en' ? 'Follow Us' : 'आमचा अनुसरण करा'}</h4>
             <div className='flex space-x-4'>
               <a href="#" className='text-gray-400 hover:text-blue-400 transition duration-200'>
@@ -61,7 +62,7 @@ const Footer = () => {
                 </svg>
               </a>
             </div>
-          </div>
+          </m.div>
         </div>
         
         <div className='border-t border-gray-700 pt-8'>

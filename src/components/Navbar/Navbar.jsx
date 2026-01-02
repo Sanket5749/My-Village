@@ -1,4 +1,5 @@
 import React, { useContext, useState } from 'react';
+import { m } from 'framer-motion';
 import { LanguageContext } from '../../App';
 import { translations } from '../../translations';
 
@@ -12,28 +13,29 @@ const Navbar = () => {
       <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
         <div className='flex justify-between items-center h-16'>
           <div className='flex-shrink-0'>
-            <h1 className='text-2xl font-bold text-white'>
+            <m.h1 initial={{ y: -8, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 1 }} className='text-2xl font-bold text-white'>
               {language === 'en' ? 'Babuldhe Village' : 'बाभुळदे गाव'}
-            </h1>
+            </m.h1>
           </div>
           
           <div className='hidden md:block'>
             <div className='ml-10 flex items-baseline space-x-4'>
-              <a href="#home" className='text-white hover:bg-blue-700 px-3 py-2 rounded-md text-sm font-medium transition duration-200 ease-in-out'>
+              <m.a href="#home" whileHover={{ scale: 1.03 }} className='text-white hover:bg-blue-700 px-3 py-2 rounded-md text-sm font-medium transition duration-200 ease-in-out'>
                 {t.navbar.home}
-              </a>
-              <a href="#about" className='text-gray-100 hover:bg-blue-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-200 ease-in-out'>
+              </m.a>
+              <m.a href="#about" whileHover={{ scale: 1.03 }} className='text-gray-100 hover:bg-blue-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-200 ease-in-out'>
                 {t.navbar.about}
-              </a>
-              <a href="#people" className='text-gray-100 hover:bg-blue-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-200 ease-in-out'>
+              </m.a>
+              <m.a href="#people" whileHover={{ scale: 1.03 }} className='text-gray-100 hover:bg-blue-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-200 ease-in-out'>
                 {t.navbar.people}
-              </a>
-              <button
+              </m.a>
+              <m.button
                 onClick={toggleLanguage}
+                whileTap={{ scale: 0.97 }}
                 className='ml-4 bg-yellow-500 hover:bg-yellow-600 text-blue-900 font-bold px-4 py-2 rounded-md text-sm transition duration-200 ease-in-out'
               >
                 {t.navbar.language}
-              </button>
+              </m.button>
             </div>
           </div>
 

@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { m } from "framer-motion";
 import { LanguageContext } from "../../App";
 import { translations } from "../../translations";
 import p1 from "../../assets/p1.jpeg";
@@ -18,9 +19,9 @@ const Home = () => {
     <section id="home" className="w-full bg-gradient-to-b from-gray-800 to-gray-900 py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12">
-          <h1 className="text-5xl sm:text-6xl font-bold text-white mb-4 bg-gradient-to-r from-green-400 to-emerald-400 bg-clip-text text-transparent">
+          <m.h1 initial={{ y: 18, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 1 }} className="text-5xl sm:text-6xl font-bold text-white mb-4 bg-gradient-to-r from-green-400 to-emerald-400 bg-clip-text text-transparent">
             {t.home.title}
-          </h1>
+          </m.h1>
           <div className="h-1 w-24 bg-gradient-to-r from-green-500 to-emerald-500 mx-auto rounded-full"></div>
         </div>
 
@@ -36,9 +37,9 @@ const Home = () => {
           <h2 className="text-2xl font-bold text-white">{t.home.galleryTitle}</h2>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mt-6">
             {gallery.map((src, idx) => (
-              <div key={idx} className="rounded-lg overflow-hidden shadow-lg bg-gray-800">
-                <img src={src} alt={`Village ${idx + 1}`} className="w-full h-44 object-cover transform transition duration-300 hover:scale-105" />
-              </div>
+              <m.div key={idx} initial={{ opacity: 0, y: 8 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 1, delay: idx * 0.05 }} whileHover={{ scale: 1.03 }} className="rounded-lg overflow-hidden shadow-lg bg-gray-800">
+                <img src={src} alt={`Village ${idx + 1}`} className="w-full h-44 object-cover" />
+              </m.div>
             ))}
           </div>
         </div>
