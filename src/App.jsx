@@ -9,7 +9,7 @@ import Footer from "./components/Footer/Footer";
 export const LanguageContext = React.createContext();
 
 export default function App() {
-  const [language, setLanguage] = useState('en');
+  const [language, setLanguage] = useState('mr');
 
   const toggleLanguage = () => {
     setLanguage(language === 'en' ? 'mr' : 'en');
